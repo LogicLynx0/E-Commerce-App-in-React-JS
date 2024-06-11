@@ -18,7 +18,20 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+input[type = text]{
+  width: 20px;
+  height: 20px;
+  /*padding: 12px 20px;
+  box-sizing: border-box; */
+}
+.container{
+  display: grid;
+}
+.imagSize{
+  height:300px;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
