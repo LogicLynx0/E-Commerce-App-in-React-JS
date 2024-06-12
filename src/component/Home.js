@@ -179,9 +179,10 @@ function Home({
 }) {
   const [productList, setProductList] = useState(dummyData);
   const [clicked, setClicked] = useState();
-
+  const [searchItem, setSearchItem] = useState();
+  // ============================== Filtered Products according to List Items =======================
   const categoryWise = (category) => {
-    setClicked = category;
+    setClicked(category);
     // console.log("categoryyyy", category);
     if (category === "All Products") {
       // console.log("conditiond true");
@@ -205,7 +206,7 @@ function Home({
         deleteToCart={handleDeleteToCart}
       />
       <Stack direction="column">
-        <ListComponent categoryWise={categoryWise} />
+        <ListComponent categoryWise={categoryWise} clicked={clicked} />
       </Stack>
 
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>

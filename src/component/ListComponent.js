@@ -1,7 +1,7 @@
 import { List, ListItemButton, ListItemText } from "@mui/material";
 import React from "react";
 
-const ListComponent = ({ categoryWise }) => {
+const ListComponent = ({ categoryWise, clicked }) => {
   const categoryList = [
     "All Products",
     "Accessories",
@@ -19,17 +19,18 @@ const ListComponent = ({ categoryWise }) => {
         {categoryList.map((category, index) => {
           return (
             <ListItemButton
-              // selected={true}
+              selected={category === clicked}
               onClick={() => categoryWise(category)}
-              // sx={{
-              //   "&:hover": {
-              //     color: "red",
-              //     backgroundColor: "White",
-              //     ":active": {
-              //       backgroundColor: "aqua",
-              //     },
-              //   },
-              // }}
+              sx={{
+                "&.Mui-selected": {
+                  backgroundColor: "pink",
+                  color: "black",
+                  "&:hover": {
+                    backgroundColor: "parrot",
+                    color: "white",
+                  },
+                },
+              }}
               // onClick={() => console.log("product category", category)}
             >
               <ListItemText>{category}</ListItemText>

@@ -187,6 +187,7 @@ export default function Navbar({
           >
             E-Commerce Store
           </Typography>
+          {/* ============================== Search Bar ===================== */}
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -194,11 +195,14 @@ export default function Navbar({
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
+              // onInput={(e) => {
+              //   setSearchQuery(e.target.value);
+              // }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            {/* ===================================================================================== */}
+            {/* ============================== Shopping Cart Drawer ================================= */}
             {/* Shopping Cart Icon here's */}
             <IconButton
               size="large"
