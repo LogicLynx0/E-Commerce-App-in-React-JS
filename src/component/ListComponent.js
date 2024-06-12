@@ -1,7 +1,7 @@
 import { List, ListItemButton, ListItemText } from "@mui/material";
 import React from "react";
 
-const ListComponent = () => {
+const ListComponent = ({ categoryWise }) => {
   const categoryList = [
     "All Products",
     "Accessories",
@@ -10,15 +10,29 @@ const ListComponent = () => {
     "Computer",
     "Cell Phone",
   ];
+
   return (
     <div>
       <List
         sx={{ display: "flex", mt: 1, backgroundColor: "red", color: "black" }}
       >
-        {categoryList.map((item, index) => {
+        {categoryList.map((category, index) => {
           return (
-            <ListItemButton>
-              <ListItemText>{item}</ListItemText>
+            <ListItemButton
+              // selected={true}
+              onClick={() => categoryWise(category)}
+              // sx={{
+              //   "&:hover": {
+              //     color: "red",
+              //     backgroundColor: "White",
+              //     ":active": {
+              //       backgroundColor: "aqua",
+              //     },
+              //   },
+              // }}
+              // onClick={() => console.log("product category", category)}
+            >
+              <ListItemText>{category}</ListItemText>
             </ListItemButton>
           );
         })}

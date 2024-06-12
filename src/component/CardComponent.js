@@ -53,9 +53,9 @@ const CardComponent = ({
         <Typography variant="body2" color="text.secondary">
           {data?.description}
         </Typography>
-        {/* <Typography variant="h6" color="text.secondary">
+        <Typography variant="h6" color="text.secondary">
           {data?.price}
-        </Typography> */}
+        </Typography>
       </CardContent>
 
       {/* <CardActions sx={{width: 200}}>

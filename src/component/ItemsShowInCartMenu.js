@@ -3,7 +3,7 @@ import React from "react";
 import CardComponent from "./CardComponent";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export const ItemsShowInCartMenu = ({ items }) => {
+export const ItemsShowInCartMenu = ({ items, deleteToCart }) => {
   console.log("data", items);
   return (
     <>
@@ -12,7 +12,7 @@ export const ItemsShowInCartMenu = ({ items }) => {
           sx={{ maxWidth: 700, border: "2px solid black", display: "flex" }}
         >
           <CardContent>
-            <DeleteIcon />
+            <DeleteIcon onClick={deleteToCart} />
             <CardMedia
               component="img"
               sx={{ height: 50, mt: 1, objectFit: "contain" }}

@@ -17,7 +17,7 @@ function App() {
   const [cart, setCart] = useState({});
   const [dataInCartIcon, setDataInCartIcon] = useState(false);
 
-  console.log("dummyData", dataInCartIcon);
+  console.log("cartcartcart", cart);
   //================================================// // ============================
   const handleAddToCart = (item) => {
     // this state managed textfield value of carts & increments 1 by 1
@@ -36,6 +36,7 @@ function App() {
   // ====================================== // // ============================
 
   const handleDeleteToCart = (item) => {
+    console.log("items568679", item);
     if (cart[item.id] > 0) {
       setCart((pre) => ({ ...pre, [item.id]: (pre[item.id] || 0) - 1 }));
     }
@@ -66,6 +67,7 @@ function App() {
                 handleDeleteToCart={handleDeleteToCart}
                 toggleDrawerOpen={toggleDrawerOpen}
                 dataInCartIcon={dataInCartIcon}
+                // categoryList={categoryList}
               />
             }
           ></Route>
@@ -73,14 +75,24 @@ function App() {
           <Route
             path="/select-item-detail/:id"
             element={
-              <ItemClickShown data={dummyData} addToCart={handleAddToCart} />
+              <ItemClickShown
+                cart={cart}
+                data={dummyData}
+                addToCart={handleAddToCart}
+                // deleteToCart={handleDeleteToCart}
+              />
             }
           ></Route>
           <Route path="/favouriteItems" element={<FavouriteItems />}></Route>
-          <Route
+          {/* <Route
             path="/cart-list"
-            element={<ItemsShowInCartMenu cartItems={cartItems} />}
-          ></Route>
+            element={
+              <ItemsShowInCartMenu
+                cartItems={cartItems}
+                deleteToCart={handleDeleteToCart}
+              />
+            }
+          ></Route> */}
           {/* <Route
             path=''
             element{}></Route> */}

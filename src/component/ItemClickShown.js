@@ -9,11 +9,12 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import LikeButton from "./LikeButton";
 import { dummyData } from "./Home";
+import Navbar from "./Navbar";
 
 import ShareIcon from "@mui/icons-material/Share";
 import NumberInput from "./NumberInput";
 
-export const ItemClickShown = ({ data, addToCart, cart }) => {
+export const ItemClickShown = ({ data, addToCart, cart, deleteToCart }) => {
   console.log("data is shown", data);
 
   const { id } = useParams();
@@ -25,6 +26,7 @@ export const ItemClickShown = ({ data, addToCart, cart }) => {
 
   return (
     <>
+      <Navbar />
       <Typography variant="h5" color="primary">
         Specifications of that Item
       </Typography>
@@ -60,8 +62,14 @@ export const ItemClickShown = ({ data, addToCart, cart }) => {
             Brand: {selectedItem?.brand}
           </Typography>
         </CardContent>
+        <NumberInput
+          id={selectedItem?.id}
+          cart={cart}
+          addToCart={() => addToCart(selectedItem)}
+          deleteToCart={() => deleteToCart(selectedItem)}
+        />
       </Card>
-      <NumberInput cart={cart} addToCart={addToCart} />
+
       <Button variant="contained" color="primary">
         ADD TO PROCEED
       </Button>

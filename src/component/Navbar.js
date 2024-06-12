@@ -67,12 +67,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar({
+export default function Navbar({
   cartItems,
   toggleDrawer,
   dataInCartIcon,
   anchor,
   setCartItems,
+  deleteToCart,
 }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -202,12 +203,14 @@ export default function PrimarySearchAppBar({
             <IconButton
               size="large"
               color="inherit"
-              aria-label="show new notifications"
+              aria-label="show 17 new notifications"
+              deleteToCart={deleteToCart}
             >
               <Badge badgeContent={cartItems?.length} color="error">
                 <PersistentDrawerRight
                   cartItems={cartItems}
                   setCartItems={setCartItems}
+                  deleteToCart={deleteToCart}
                 />
               </Badge>
             </IconButton>

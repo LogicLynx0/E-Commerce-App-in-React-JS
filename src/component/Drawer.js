@@ -36,7 +36,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-start",
 }));
 
-export default function PersistentDrawerRight({ cartItems }) {
+export default function PersistentDrawerRight({ cartItems, deleteToCart }) {
   console.log("itemadads", cartItems);
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -103,18 +103,23 @@ export default function PersistentDrawerRight({ cartItems }) {
                 <ChevronRightIcon />
               )}
             </IconButton>
-            <Typography>Your Selected Items are</Typography>
+            <Typography variant="h6">Shop Trolley</Typography>
           </DrawerHeader>
 
           <Divider />
 
           <Divider />
-          <Typography>Number of Items in Your cart</Typography>
+          <Typography> {cartItems?.length} Items in Your cart</Typography>
           {cartItems?.map((selectedItems) => {
-            return <ItemsShowInCartMenu items={selectedItems} />;
+            return (
+              <ItemsShowInCartMenu
+                items={selectedItems}
+                deleteToCart={() => deleteToCart(selectedItems)}
+              />
+            );
           })}
-          <Button variant="contained" color="success">
-            PAYMENT
+          <Button size="sm" variant="contained" color="success">
+            SHOW ALL PRODUCTS
           </Button>
         </Drawer>
       </Box>

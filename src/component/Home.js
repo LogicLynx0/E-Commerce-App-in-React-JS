@@ -167,8 +167,6 @@ export const dummyData = [
 ];
 
 function Home({
-  increment,
-  decrement,
   counter,
   setCartItems,
   cartItems,
@@ -179,9 +177,24 @@ function Home({
   toggleDrawerOpen,
   dataInCartIcon,
 }) {
-  // const [cartItems, setCartItems] = useState([])
+  const [productList, setProductList] = useState(dummyData);
+  const [clicked, setClicked] = useState();
 
-  console.log("cartItemsHome", cartItems);
+  const categoryWise = (category) => {
+    setClicked = category;
+    // console.log("categoryyyy", category);
+    if (category === "All Products") {
+      // console.log("conditiond true");
+      setProductList(dummyData);
+    } else {
+      const filterArray = dummyData.filter(
+        (item) => item.category === category
+      );
+      // cons/ole.log("filterd products", filterArray);
+      setProductList(filterArray);
+    }
+  };
+
   return (
     <>
       <Navbar
@@ -189,13 +202,16 @@ function Home({
         setCartItems={setCartItems}
         dataInCartIcon={dataInCartIcon}
         toggleDrawer={toggleDrawerOpen}
+        deleteToCart={handleDeleteToCart}
       />
       <Stack direction="column">
-        <ListComponent />
+        <ListComponent categoryWise={categoryWise} />
       </Stack>
 
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        {dummyData.map((item) => {
+        {/* dummyData.map */}
+        {/* filteredProduccts */}
+        {productList.map((item) => {
           return (
             <CardComponent
               data={item}
